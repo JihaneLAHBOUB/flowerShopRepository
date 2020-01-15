@@ -67,7 +67,7 @@ public class AdminFlowerController {
 		FlowersDTO flowersDTO = flowersService.getDataById(id);
 		modelMap.addAttribute("Flower", flowersDTO);
 		return "editFlowers";
-
+		
 	}
 
 	@RequestMapping("/updateFlowers")

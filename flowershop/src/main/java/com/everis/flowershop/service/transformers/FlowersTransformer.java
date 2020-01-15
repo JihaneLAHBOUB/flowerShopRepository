@@ -2,7 +2,7 @@ package com.everis.flowershop.service.transformers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.everis.flowershop.repository.entity.Category;
+import com.everis.flowershop.repository.CategoryDAO;
 import com.everis.flowershop.repository.entity.Flowers;
 import com.everis.flowershop.service.CategoryService;
 import com.everis.flowershop.service.dto.FlowersDTO;
@@ -14,6 +14,12 @@ public class FlowersTransformer extends AbstractTransformers<FlowersDTO, Flowers
 //
 //	private Categorytransformers categoryTransformer = new Categorytransformers();
 
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private CategoryService categoryService;
+	
 	@Override
 	public FlowersDTO toDTO(Flowers entity) {
 		FlowersDTO dto = new FlowersDTO();
@@ -42,8 +48,11 @@ public class FlowersTransformer extends AbstractTransformers<FlowersDTO, Flowers
 
 		// ne pointe plus sur category
 		
-		entity.setCategory(new Category(dto.getCategory_id()));
+		//entity.setCategory(new Category(dto.getCategory_id()));
 		//entity.setCategory(categoryTransformer.toEntity(categoryService.getDataById(dto.getCategory_id())));
+
+//		System.out.println(categoryService.getDataById(dto.getCategory_id()));
+//		entity.setCategory(categoryDAO.getOne(dto.getCategory_id()));
 
 		return entity;
 	}

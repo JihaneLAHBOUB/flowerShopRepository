@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.everis.flowershop.repository.CategoryDAO;
 import com.everis.flowershop.repository.FlowersDAO;
 import com.everis.flowershop.repository.entity.Flowers;
 import com.everis.flowershop.service.FlowersService;
@@ -19,13 +20,18 @@ public class FlowersServiceImpl implements FlowersService {
 	@Autowired
 	private FlowersDAO flowersDAO;
 	
+	@Autowired
+	private CategoryDAO categoryDAO;
+	
 	public FlowersTransformer transformer = new FlowersTransformer();
 
 	@Override
 	public FlowersDTO saveData(FlowersDTO flowerDTO) {
 		
 		System.out.println("dto id category: "+ flowerDTO.getCategory_id());
+		
 		Flowers flowerToCreate = transformer.toEntity(flowerDTO);
+		flowerToCreate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
 		
 		System.out.println("toEntity id category: "+ flowerToCreate.getCategory().getId());
 		
@@ -62,8 +68,10 @@ public class FlowersServiceImpl implements FlowersService {
 		if (flower.isPresent()) {
 			
 			return transformer.toDTO(flower.get());
-		}
+		}else {
+			
 			return null;
+		}
 	}
 
 	@Override
