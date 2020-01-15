@@ -5,9 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.flowershop.service.FlowersService;
 import com.everis.flowershop.service.dto.FlowersDTO;
@@ -18,9 +25,10 @@ public class AdminFlowerController {
 	@Autowired
 	private FlowersService flowersService;
 
+//	with jsp pages
+
 	@RequestMapping("/showCreate")
 	public String showCreate() {
-		System.out.println("here");
 		return "createFlowers";
 	}
 
@@ -33,7 +41,7 @@ public class AdminFlowerController {
 		return "createFlowers";
 	}
 
-	@RequestMapping("/displayAllFlowers")
+	@RequestMapping("/display")
 	public String displayFlowers(ModelMap modelMap) {
 
 		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
@@ -64,11 +72,64 @@ public class AdminFlowerController {
 
 	@RequestMapping("/updateFlowers")
 	public String updateFlowers(@ModelAttribute("FlowersDTO") FlowersDTO flowersDTO, ModelMap modelMap) {
-
+		
+		System.out.println("before update: "+flowersDTO);
 		flowersService.updateData(flowersDTO);
+		System.out.println("after update: "+flowersDTO);
 		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
 		modelMap.addAttribute("listFlowerDTO", listFlowerDTO);
+		System.out.println("after getall: "+listFlowerDTO);
 		return "displayFlowers";
 	}
+	
+	
+	
+//	with postman
+
+	@GetMapping("/Flower")
+	public List<FlowersDTO> home() {
+
+		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
+
+		return listFlowerDTO;
+	}
+	
+	@PostMapping("/addFlower")
+	public FlowersDTO saveFlowers(@RequestBody FlowersDTO flowersDTO) {
+
+		FlowersDTO dto = flowersService.saveData(flowersDTO);
+		return dto;
+	}
+
+	@GetMapping("/displayAllFlowers")
+	public List<FlowersDTO> displayFlowers() {
+
+		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
+
+		return listFlowerDTO;
+	}
+
+	@DeleteMapping("/deleteFlower/{id}")
+	public List<FlowersDTO> deleteFlowers(@PathVariable("id") Long id) {
+
+		FlowersDTO flowersDTO = flowersService.getDataById(id);
+		flowersService.deleteData(flowersDTO);
+
+		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
+
+		return listFlowerDTO;
+	}
+
+	@PutMapping("/updateFlower/{id}")
+	public List<FlowersDTO> updateFlowers(@PathVariable("id") Long id, @RequestBody FlowersDTO flowersDTO) {
+
+		flowersDTO.setId(id);
+		flowersService.updateData(flowersDTO);
+		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
+
+		return listFlowerDTO;
+	}
+
+
 
 }

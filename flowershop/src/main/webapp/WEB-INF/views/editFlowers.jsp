@@ -21,15 +21,9 @@
 	
 	Current Price : <input type="text" name="currentPrice" value="${Flower.currentPrice }"/>
 	
+	Quantity : <input type="text" name="quantity" value="${Flower.quantity }"/>
 	
-	Promotion : In Promotion	<input type="radio" name="promotion" value="true" ${Flower.promotion == 'true'? 'checked' : ''}/>
-			 Out Promotion	<input type="radio" name="promotion" value="false" ${Flower.promotion == 'false'? 'checked' : ''}/>
-	
-	selected	 : yes	<input type="radio" name="selected" value="true" ${Flower.selected == 'true'? 'checked' : ''}/>
-			 		no <input type="radio" name="selected" value="false" ${Flower.selected == 'false'? 'checked' : ''}/>
-	
-	available : yes	<input type="radio" name="available" value="true" ${Flower.available == 'true'? 'checked' : ''}/>
-			no <input type="radio" name="available" value="false" ${Flower.available == 'false'? 'checked' : ''}/>
+	Category : <input type="text" name="category_id" value="${Flower.category_id }" />
 			 
 	<input type="submit" value="Update"/>
 	</pre>

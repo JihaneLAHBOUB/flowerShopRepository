@@ -1,17 +1,15 @@
 package com.everis.flowershop.service.dto;
 
-
 public class FlowersDTO {
 
 	private Long id;
 	private String name;
 	private String description;
 	private double currentPrice;
-	private boolean promotion;
-	private boolean selected;
-	private boolean available;
+	private int quantity;
 	private String photoName;
-	private CategoryDTO categoryDTO;
+
+	private Long category_id;
 
 	public Long getId() {
 		return id;
@@ -45,30 +43,6 @@ public class FlowersDTO {
 		this.currentPrice = currentPrice;
 	}
 
-	public boolean isPromotion() {
-		return promotion;
-	}
-
-	public void setPromotion(boolean promotion) {
-		this.promotion = promotion;
-	}
-
-	public boolean isSelected() {
-		return selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-
-	public boolean isAvailable() {
-		return available;
-	}
-
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
-
 	public String getPhotoName() {
 		return photoName;
 	}
@@ -77,19 +51,26 @@ public class FlowersDTO {
 		this.photoName = photoName;
 	}
 
-	public CategoryDTO getCategoryDTO() {
-		return categoryDTO;
+	public Long getCategory_id() {
+		return category_id;
 	}
 
-	public void setCategoryDTO(CategoryDTO categoryDTO) {
-		this.categoryDTO = categoryDTO;
+	public void setCategory_id(Long category_id) {
+		this.category_id = category_id;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	@Override
 	public String toString() {
 		return "FlowersDTO [id=" + id + ", name=" + name + ", description=" + description + ", currentPrice="
-				+ currentPrice + ", promotion=" + promotion + ", selected=" + selected + ", available=" + available
-				+ ", photoName=" + photoName + "]";
+				+ currentPrice + ", quantity="+quantity +", photoName=" + photoName + "]";
 	}
 
 }

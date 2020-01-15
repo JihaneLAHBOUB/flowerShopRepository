@@ -9,7 +9,7 @@ public class CategoryDTO {
 	private String name;
 	private String description;
 	
-	private List<FlowersDTO> flowersDTO;
+	private List<FlowersDTO> flowersDTOList;
 
 	public CategoryDTO() {
 		super();
@@ -46,18 +46,18 @@ public class CategoryDTO {
 		this.description = description;
 	}
 
-	public List<FlowersDTO> getFlowersDTO() {
-		return flowersDTO;
+	public List<FlowersDTO> getFlowersDTOList() {
+		return flowersDTOList;
 	}
 
-	public void setFlowersDTO(List<FlowersDTO> flowersDTO) {
-		this.flowersDTO = flowersDTO;
+	public void setFlowersDTOList(List<FlowersDTO> flowersDTOList) {
+		this.flowersDTOList = flowersDTOList;
 	}
 
 	@Override
 	public String toString() {
-		return "CategoryDTO [id=" + id + ", name=" + name + ", description=" + description + ", flowersDTO="
-				+ flowersDTO + "]";
+		return "CategoryDTO [id=" + id + ", name=" + name + ", description=" + description + ", flowersDTOList="
+				+ flowersDTOList + "]";
 	}
 
 }

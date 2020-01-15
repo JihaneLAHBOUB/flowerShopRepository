@@ -18,21 +18,20 @@
 			<th>Quantity </th>
 			<th>description</th>
 			<th>price</th>
+			<th>photo</th>
 		</tr>
 		
-		<c:forEach items="${listFlowerDTO }" var="flower">
+		<c:forEach items="${listProductDTO }" var="product">
 			<tr>
-				<td> ${flower.id } </td>
-				<td> ${flower.name } </td>
-				<td> ${flower.quantity } </td>
-				<td> ${flower.description } </td>
-				<td> ${flower.currentPrice } </td>
-<%-- 				<td> ${flower.category } </td> --%>
-				<td> <a href="deleteFlower?id=${flower.id}">Delete</a>
-				<td> <a href="updateFlower?id=${flower.id}">Update</a>
+				<td> ${product.id } </td>
+				<td> ${product.name } </td>
+				<td> ${product.quantity } </td>
+				<td> ${product.description } </td>
+				<td> ${product.currentPrice } </td>
+				<td> ${product.photoName } </td>
+				<td> <a href="addProduct?id=${product.id}">Add To Cart</a>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="showCreate">Add Flowers</a>
 </body>
 </html>

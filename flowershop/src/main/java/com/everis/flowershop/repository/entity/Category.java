@@ -2,10 +2,13 @@ package com.everis.flowershop.repository.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,11 +19,18 @@ public class Category {
 	private Long id;
 	private String name;
 	private String description;
-	@OneToMany(mappedBy = "category")
-	private List<Flowers> flowers;
+
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "category_id")
+//	private List<Flowers> flowersList;
 
 	public Category() {
 		super();
+	}
+
+	public Category(Long id) {
+		super();
+		this.id = id;
 	}
 
 	public Category(Long id, String name, String description) {
@@ -54,17 +64,18 @@ public class Category {
 		this.description = description;
 	}
 
-	public List<Flowers> getFlowers() {
-		return flowers;
-	}
-
-	public void setFlowers(List<Flowers> flowers) {
-		this.flowers = flowers;
-	}
+//	public List<Flowers> getFlowersList() {
+//		return flowersList;
+//	}
+//
+//	public void setFlowers(List<Flowers> flowersList) {
+//		this.flowersList = flowersList;
+//	}
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", flowers=" + flowers + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", flowersList=" 
+				+ "]";
 	}
 
 }

@@ -5,6 +5,8 @@ import com.everis.flowershop.service.dto.CategoryDTO;
 
 public class Categorytransformers extends AbstractTransformers<CategoryDTO, Category>{
 
+	//private FlowersTransformer flowerTransformer = new FlowersTransformer() ;
+	
 	@Override
 	public CategoryDTO toDTO(Category entity) {
 		CategoryDTO dto = new CategoryDTO();
@@ -13,7 +15,10 @@ public class Categorytransformers extends AbstractTransformers<CategoryDTO, Cate
 		dto.setName(entity.getName());
 		dto.setDescription(entity.getDescription());
 		
-		//dto.setFlowersDTO();
+//		if( entity.getFlowersList() != null) {
+//			dto.setFlowersDTOList(flowerTransformer.toDTOList(entity.getFlowersList()));
+//		}
+		
 		return dto;
 	}
 
@@ -25,6 +30,9 @@ public class Categorytransformers extends AbstractTransformers<CategoryDTO, Cate
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());
 
+//		if( dto.getFlowersDTOList() != null) {
+//			entity.setFlowers(flowerTransformer.toEntityList(dto.getFlowersDTOList()));
+//		}
 		return entity;
 	}
 

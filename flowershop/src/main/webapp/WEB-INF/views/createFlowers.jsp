@@ -18,17 +18,9 @@
 	
 	Current Price : <input type="text" name="currentPrice"/>
 	
-	Promotion : In Promotion	<input type="radio" name="promotion" value="true"/>
+	Quantity : <input type="text" name="quantity"/>
 	
-			 Out Promotion	<input type="radio" name="promotion" value="false"/>
-	
-	selected : yes	<input type="radio" name="selected" value="true"/>
-	
-			 no	<input type="radio" name="selected" value="false"/>
-			 
-	available : In available	<input type="radio" name="available" value="true"/>
-	
-			 Out available	<input type="radio" name="available" value="false"/>
+	Category : <input type="text" name="category_id" />
 			 
 <!-- 	Category id: <input type="text" name="categoryDTO.id" /> -->
 <!-- 	Category name: <input type="text" name="categoryDTO.name" /> -->
@@ -38,6 +30,6 @@
 	</pre>
 	</form>
 	${msg }
-	<a href="displayAllFlowers">View All</a>
+	<a href="display">View All</a>
 </body>
 </html>

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Flowers {
@@ -16,12 +16,11 @@ public class Flowers {
 	private String name;
 	private String description;
 	private double currentPrice;
-	private boolean promotion;
-	private boolean selected;
-	private boolean available;
+	private int quantity;
 	private String photoName;
-	@ManyToOne
-	@JoinColumn(name="category_id")
+
+	@OneToOne
+	@JoinColumn(name = "category_id")
 	private Category category;
 
 	public Long getId() {
@@ -56,29 +55,6 @@ public class Flowers {
 		this.currentPrice = currentPrice;
 	}
 
-	public boolean isPromotion() {
-		return promotion;
-	}
-
-	public void setPromotion(boolean promotion) {
-		this.promotion = promotion;
-	}
-
-	public boolean isSelected() {
-		return selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-
-	public boolean isAvailable() {
-		return available;
-	}
-
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
 
 	public String getPhotoName() {
 		return photoName;
@@ -88,19 +64,26 @@ public class Flowers {
 		this.photoName = photoName;
 	}
 
-//	public Category getCategory() {
-//		return category;
-//	}
-//
-//	public void setCategory(Category category) {
-//		this.category = category;
-//	}
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	@Override
 	public String toString() {
 		return "Flowers [id=" + id + ", name=" + name + ", description=" + description + ", currentPrice="
-				+ currentPrice + ", promotion=" + promotion + ", selected=" + selected + ", available=" + available
-				+ ", photoName=" + photoName + "]";
+				+ currentPrice + ", photoName=" + photoName + "]";
 	}
 
 }
