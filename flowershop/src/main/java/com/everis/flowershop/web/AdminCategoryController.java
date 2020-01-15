@@ -91,7 +91,7 @@ public class AdminCategoryController {
 		return "createCategory";
 	}
 
-	@RequestMapping("/displayAllCategories")
+	@RequestMapping("/displayCategories")
 	public String displayCategory(ModelMap modelMap) {
 
 		List<CategoryDTO> listCategoryDTO = categoryService.getAllData();

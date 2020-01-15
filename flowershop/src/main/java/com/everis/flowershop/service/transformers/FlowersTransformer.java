@@ -29,9 +29,10 @@ public class FlowersTransformer extends AbstractTransformers<FlowersDTO, Flowers
 		dto.setDescription(entity.getDescription());
 		dto.setCurrentPrice(entity.getCurrentPrice());
 		dto.setQuantity(entity.getQuantity());
-		
-		
 		dto.setCategory_id(entity.getCategory().getId());
+//		System.out.println("before entity.getCategory().getId():"+entity.getCategory().getId());
+//		dto.setCategory_id(entity.getCategory().getId());
+//		System.out.println("after entity.getCategory().getId():"+entity.getCategory().getId()+" name category:"+entity.getCategory().getName());
 		
 		return dto;
 	}

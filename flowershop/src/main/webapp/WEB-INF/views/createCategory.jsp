@@ -20,6 +20,6 @@
 	</pre>
 	</form>
 	${msg }
-	<a href="displayAllCategories">View All</a>
+	<a href="displayCategories">View All</a>
 </body>
 </html>

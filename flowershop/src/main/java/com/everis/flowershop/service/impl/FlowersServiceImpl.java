@@ -28,12 +28,12 @@ public class FlowersServiceImpl implements FlowersService {
 	@Override
 	public FlowersDTO saveData(FlowersDTO flowerDTO) {
 		
-		System.out.println("dto id category: "+ flowerDTO.getCategory_id());
+//		System.out.println("dto id category: "+ flowerDTO.getCategory_id());
 		
 		Flowers flowerToCreate = transformer.toEntity(flowerDTO);
 		flowerToCreate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
 		
-		System.out.println("toEntity id category: "+ flowerToCreate.getCategory().getId());
+//		System.out.println("toEntity id category: "+ flowerToCreate.getCategory().getId());
 		
 		Flowers createdFlower = flowersDAO.save(flowerToCreate);
 		System.out.println("after save  id category: "+ createdFlower.getCategory().getId());
@@ -46,7 +46,10 @@ public class FlowersServiceImpl implements FlowersService {
 	@Override
 	public FlowersDTO updateData(FlowersDTO flowerDTO) {
 
+		System.out.println("inside update ");
 		Flowers flowerToUpdate = transformer.toEntity(flowerDTO);
+		flowerToUpdate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
+		System.out.println("flower:"+flowerToUpdate);
 		Flowers updatedFlower = flowersDAO.save(flowerToUpdate);
 		FlowersDTO updatedFlowerDTO = transformer.toDTO(updatedFlower);
 

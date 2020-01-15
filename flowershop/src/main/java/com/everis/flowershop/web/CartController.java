@@ -3,11 +3,13 @@ package com.everis.flowershop.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,6 +23,8 @@ public class CartController {
 	@Autowired
 	private FlowersService flowersService;
 
+	
+	
 	@RequestMapping("/product")
 	public String displayAllProduct(ModelMap modelMap) {
 
@@ -28,9 +32,9 @@ public class CartController {
 		modelMap.addAttribute("listProductDTO", listProductDTO);
 		return "displayProduct";
 	}
-
+	
 	@RequestMapping("/addProduct")
-	public String addToCart(@RequestParam("id") Long id, ModelMap modelMap, HttpSession session) {
+	public String addToCart(@RequestParam("id") Long id, HttpSession session) {
 
 		FlowersDTO flowersDTO = flowersService.getDataById(id);
 
@@ -75,5 +79,49 @@ public class CartController {
 		}
 		return -1;
 	}
-
+	
+	
+	@RequestMapping("/deleteProduct")
+	public String deleteFromCart(@RequestParam("id") Long id, HttpSession session) {
+		List<ItemDTO> cart = (List<ItemDTO>) session.getAttribute("cart");
+		int index = isExists(id, cart);
+		cart.remove(index);
+		session.setAttribute("cart", cart);
+		return "cart";
+	}
+	
+	@RequestMapping("/updateProduct")
+	public String updateCart(ModelMap modelMap, HttpServletRequest request, HttpSession session) {
+	
+		String[] quantities = request.getParameterValues("quantity");
+		List<ItemDTO> cart = (List<ItemDTO>) session.getAttribute("cart");
+		
+		for(int i = 0; i<cart.size(); i++) {
+			cart.get(i).setQuantity(Integer.parseInt(quantities[i]));
+		}
+		
+		session.setAttribute("cart", cart);
+		modelMap.put("total", total(session));
+		return "cart";
+	}
+	
+	private double total(HttpSession session) {
+		List<ItemDTO> cart = (List<ItemDTO>) session.getAttribute("cart");
+		 double somme = 0;
+		 
+		 for (ItemDTO item : cart) {
+			somme += item.getQuantity() * item.getFlower().getCurrentPrice();
+		}
+		 
+		 return somme;
+	}
+	
+	
+	@RequestMapping("/checkout")
+	public String checkout(HttpSession session) {
+		if(session.getAttribute("username") == null) {
+			return "account";
+		}
+		return "thanks";
+	}
 }

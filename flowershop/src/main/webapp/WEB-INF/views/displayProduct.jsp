@@ -28,7 +28,8 @@
 				<td> ${product.quantity } </td>
 				<td> ${product.description } </td>
 				<td> ${product.currentPrice } </td>
-				<td> ${product.photoName } </td>
+				<td> 
+				<img src="/img/product-1.jpg" width="50"/> ${product.photoName } </td>
 				<td> <a href="addProduct?id=${product.id}">Add To Cart</a>
 			</tr>
 		</c:forEach>

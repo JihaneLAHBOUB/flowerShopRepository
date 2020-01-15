@@ -70,7 +70,7 @@ public class FlowersDTO {
 	@Override
 	public String toString() {
 		return "FlowersDTO [id=" + id + ", name=" + name + ", description=" + description + ", currentPrice="
-				+ currentPrice + ", quantity="+quantity +", photoName=" + photoName + "]";
+				+ currentPrice + ", quantity="+quantity +", photoName=" + photoName + "category_id=" + category_id +"]";
 	}
 
 }
