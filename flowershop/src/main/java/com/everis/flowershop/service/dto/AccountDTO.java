@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 
-@Entity
 public class AccountDTO {
 
 	private String username;

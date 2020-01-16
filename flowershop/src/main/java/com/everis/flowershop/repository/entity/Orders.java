@@ -4,28 +4,43 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.GeneratorType;
+
+@Entity
 public class Orders {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Account account;
+	
 	private String name;
 	private Date dateCreation;
 	private boolean status;
-	private List<OrderDetail> orderDetails = new ArrayList<>();
+	
+	@OneToOne
+	@JoinColumn(name = "account_id")
+	private Account account;
+//	private List<OrderDetail> orderDetails = new ArrayList<>();
 
 	public Orders() {
 		super();
 	}
 
-	public Orders(Integer id, Account account, String name, Date dateCreation, boolean status,
-			List<OrderDetail> orderDetails) {
+	public Orders(Integer id, Account account, String name, Date dateCreation, boolean status) {
 		super();
 		this.id = id;
 		this.account = account;
 		this.name = name;
 		this.dateCreation = dateCreation;
 		this.status = status;
-		this.orderDetails = orderDetails;
+//		this.orderDetails = orderDetails;
 	}
 
 	public Integer getId() {
@@ -68,18 +83,18 @@ public class Orders {
 		this.status = status;
 	}
 
-	public List<OrderDetail> getOrderDetails() {
-		return orderDetails;
-	}
-
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
-	}
+//	public List<OrderDetail> getOrderDetails() {
+//		return orderDetails;
+//	}
+//
+//	public void setOrderDetails(List<OrderDetail> orderDetails) {
+//		this.orderDetails = orderDetails;
+//	}
 
 	@Override
 	public String toString() {
 		return "Orders [id=" + id + ", account=" + account + ", name=" + name + ", dateCreation=" + dateCreation
-				+ ", status=" + status + ", orderDetails=" + orderDetails + "]";
+				+ ", status=" + status + "]";
 	}
 
 }

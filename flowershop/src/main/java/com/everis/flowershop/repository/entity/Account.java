@@ -4,27 +4,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Account {
 
+	@Id
 	private String username;
 	private String password;
 	private String fullname;
 	private String email;
-	private Set<Orders> orders = new HashSet<>();
+	//private Set<Orders> orders = new HashSet<>();
 
 	public Account() {
 		super();
 	}
 
-	public Account(String username, String password, String fullname, String email, Set<Orders> orders) {
+	public Account(String username, String password, String fullname, String email) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.fullname = fullname;
 		this.email = email;
-		this.orders = orders;
+	//	this.orders = orders;
 	}
 
 	public String getUsername() {
@@ -59,18 +61,18 @@ public class Account {
 		this.email = email;
 	}
 
-	public Set<Orders> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(Set<Orders> orders) {
-		this.orders = orders;
-	}
+//	public Set<Orders> getOrders() {
+//		return orders;
+//	}
+//
+//	public void setOrders(Set<Orders> orders) {
+//		this.orders = orders;
+//	}
 
 	@Override
 	public String toString() {
 		return "Account [username=" + username + ", password=" + password + ", fullname=" + fullname + ", email="
-				+ email + ", orders=" + orders + "]";
+				+ email + "]";
 	}
 
 }

@@ -29,7 +29,7 @@
 				
 <%-- 				<td> ${item.flower.photoName } </td> --%>
 				
-				<td> <img src="./resources/static/img/product-1.jpg" width="50"/> ${item.flower.photoName } </td>
+				<td> <img src="../resources/static/img/product-1.jpg" width="50"/> ${item.flower.photoName } </td>
 				<td> ${item.flower.name } </td>
 				<td> ${item.flower.description } </td>
 				<td> <input type="number" value="${item.quantity }" name="quantity" style="width= 50px;"/> </td>
