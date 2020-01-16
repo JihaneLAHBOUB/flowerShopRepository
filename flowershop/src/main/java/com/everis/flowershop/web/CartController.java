@@ -42,7 +42,6 @@ public class CartController {
 
 			List<ItemDTO> cart = new ArrayList<>();
 			cart.add(new ItemDTO(flowersDTO, 1));
-			flowersDTO.setQuantity(flowersDTO.getQuantity() - 1);
 			flowersService.saveData(flowersDTO);
 			session.setAttribute("cart", cart);
 
@@ -53,13 +52,11 @@ public class CartController {
 			if (index == -1) {
 
 				cart.add(new ItemDTO(flowersDTO, 1));
-				flowersDTO.setQuantity(flowersDTO.getQuantity() - 1);
 				flowersService.saveData(flowersDTO);
 
 			} else {
 
 				int quantity = cart.get(index).getQuantity() + 1;
-				flowersDTO.setQuantity(flowersDTO.getQuantity() - 1);
 				flowersService.saveData(flowersDTO);
 				cart.get(index).setQuantity(quantity);
 
@@ -108,11 +105,11 @@ public class CartController {
 	private double total(HttpSession session) {
 		List<ItemDTO> cart = (List<ItemDTO>) session.getAttribute("cart");
 		 double somme = 0;
-		 
-		 for (ItemDTO item : cart) {
-			somme += item.getQuantity() * item.getFlower().getCurrentPrice();
-		}
-		 
+		 if(cart != null) {
+			 for (ItemDTO item : cart) {
+				somme += item.getQuantity() * item.getFlower().getCurrentPrice();
+			}
+		 }
 		 return somme;
 	}
 	
@@ -122,6 +119,7 @@ public class CartController {
 		if(session.getAttribute("username") == null) {
 			return "account";
 		}
+		session.removeAttribute("cart");
 		return "thanks";
 	}
 }

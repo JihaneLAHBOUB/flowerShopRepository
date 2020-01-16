@@ -4,11 +4,14 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GeneratorType;
@@ -27,7 +30,10 @@ public class Orders {
 	@OneToOne
 	@JoinColumn(name = "account_id")
 	private Account account;
-//	private List<OrderDetail> orderDetails = new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "orderDetail_id")
+	private List<OrderDetail> orderDetails = new ArrayList<>();
 
 	public Orders() {
 		super();
@@ -83,13 +89,13 @@ public class Orders {
 		this.status = status;
 	}
 
-//	public List<OrderDetail> getOrderDetails() {
-//		return orderDetails;
-//	}
-//
-//	public void setOrderDetails(List<OrderDetail> orderDetails) {
-//		this.orderDetails = orderDetails;
-//	}
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
 
 	@Override
 	public String toString() {

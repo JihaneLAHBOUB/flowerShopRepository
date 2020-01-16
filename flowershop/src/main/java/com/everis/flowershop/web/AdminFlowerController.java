@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.everis.flowershop.service.FlowersService;
 import com.everis.flowershop.service.dto.FlowersDTO;
@@ -71,16 +72,18 @@ public class AdminFlowerController {
 	}
 
 	@RequestMapping("/updateFlowers")
-	public String updateFlowers(@ModelAttribute("FlowersDTO") FlowersDTO flowersDTO, ModelMap modelMap) {
+	public RedirectView updateFlowers(@ModelAttribute("FlowersDTO") FlowersDTO flowersDTO, ModelMap modelMap) {
 		
 		System.out.println("before update: "+flowersDTO);
 		flowersService.updateData(flowersDTO);
 		System.out.println("after update: "+flowersDTO);
-		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
-		modelMap.addAttribute("listFlowerDTO", listFlowerDTO);
-		System.out.println("after getall: "+listFlowerDTO);
-		return "displayFlowers";
-	}
+//		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
+//		modelMap.addAttribute("listFlowerDTO", listFlowerDTO);
+//		System.out.println("after getall: "+listFlowerDTO);
+//		return "displayFlowers";
+		
+		return new RedirectView("display");
+		}
 	
 	
 	
