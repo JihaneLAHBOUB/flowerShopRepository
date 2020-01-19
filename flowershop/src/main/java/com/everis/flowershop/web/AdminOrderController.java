@@ -29,15 +29,13 @@ public class AdminOrderController {
 	}
 
 	@RequestMapping("/deleteOrder")
-	public String deleteOrder(@RequestParam("id") Long id, ModelMap modelMap) {
+	public RedirectView deleteOrder(@RequestParam("id") Long id, ModelMap modelMap) {
 
 		OrdersDTO ordersDTO = ordersService.getDataById(id);
 		ordersService.deleteData(ordersDTO);
 
-		List<OrdersDTO> listOrdersDTO = ordersService.getAllData();
-		modelMap.addAttribute("listOrdersDTO", listOrdersDTO);
 
-		return "displayOrders";
+		return new RedirectView("displayOrders");
 	}
 
 	@RequestMapping("/updateStatus")

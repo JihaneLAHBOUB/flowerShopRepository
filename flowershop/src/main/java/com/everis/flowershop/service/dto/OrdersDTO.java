@@ -1,6 +1,6 @@
 package com.everis.flowershop.service.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class OrdersDTO {
@@ -8,7 +8,7 @@ public class OrdersDTO {
 	private Long id;
 
 	private String name;
-	private Date dateCreation;
+	private LocalDate dateCreation;
 	private boolean status;
 
 	private String usernameDTO;
@@ -19,7 +19,7 @@ public class OrdersDTO {
 		super();
 	}
 
-	public OrdersDTO(Long id, String name, Date dateCreation, boolean status, String accountDTO) {
+	public OrdersDTO(Long id, String name, LocalDate dateCreation, boolean status, String accountDTO) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -60,11 +60,11 @@ public class OrdersDTO {
 		this.name = name;
 	}
 
-	public Date getDateCreation() {
+	public LocalDate getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCreation(Date dateCreation) {
+	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 

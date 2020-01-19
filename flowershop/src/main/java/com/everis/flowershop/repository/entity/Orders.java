@@ -1,6 +1,6 @@
 package com.everis.flowershop.repository.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,7 +20,7 @@ public class Orders {
 	private Long id;
 
 	private String name;
-	private Date dateCreation;
+	private LocalDate dateCreation;
 	private boolean status;
 
 	private String username;
@@ -33,7 +33,7 @@ public class Orders {
 		super();
 	}
 
-	public Orders(Long id, String name, Date dateCreation, boolean status, String account) {
+	public Orders(Long id, String name, LocalDate dateCreation, boolean status, String account) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -67,11 +67,11 @@ public class Orders {
 		this.name = name;
 	}
 
-	public Date getDateCreation() {
+	public LocalDate getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCreation(Date dateCreation) {
+	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 

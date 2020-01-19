@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.everis.flowershop.service.CategoryService;
 import com.everis.flowershop.service.dto.CategoryDTO;
@@ -42,15 +43,12 @@ public class AdminCategoryController {
 	}
 
 	@RequestMapping("/deleteCategory")
-	public String deleteCategory(@RequestParam("id") Long id, ModelMap modelMap) {
+	public RedirectView deleteCategory(@RequestParam("id") Long id, ModelMap modelMap) {
 
 		CategoryDTO CategoryDTO = categoryService.getDataById(id);
 		categoryService.deleteData(CategoryDTO);
 
-		List<CategoryDTO> listCategoryDTO = categoryService.getAllData();
-		modelMap.addAttribute("listCategoryDTO", listCategoryDTO);
-
-		return "displayCategory";
+		return new RedirectView("displayCategories");
 	}
 
 	@RequestMapping("/updateCategory")
@@ -63,12 +61,11 @@ public class AdminCategoryController {
 	}
 
 	@RequestMapping("/updateCategories")
-	public String updateCategory(@ModelAttribute("CategoryDTO") CategoryDTO CategoryDTO, ModelMap modelMap) {
+	public RedirectView updateCategory(@ModelAttribute("CategoryDTO") CategoryDTO CategoryDTO, ModelMap modelMap) {
 
 		categoryService.updateData(CategoryDTO);
-		List<CategoryDTO> listCategoryDTO = categoryService.getAllData();
-		modelMap.addAttribute("listCategoryDTO", listCategoryDTO);
-		return "displayCategory";
+
+		return new RedirectView("displayCategories");
 	}
 
 }

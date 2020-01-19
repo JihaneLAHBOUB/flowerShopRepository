@@ -1,7 +1,7 @@
 package com.everis.flowershop.web;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -130,7 +130,7 @@ public class CartController {
 
 			orderDTO.setName("New Order");
 			orderDTO.setStatus(false);
-			orderDTO.setDateCreation(new Date());
+			orderDTO.setDateCreation(LocalDate.now());
 
 			// add order detail
 			List<ItemsCartDTO> cart = (List<ItemsCartDTO>) session.getAttribute("cart");

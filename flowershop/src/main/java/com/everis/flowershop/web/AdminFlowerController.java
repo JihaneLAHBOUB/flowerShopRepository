@@ -49,15 +49,12 @@ public class AdminFlowerController {
 	}
 
 	@RequestMapping("/deleteFlower")
-	public String deleteFlowers(@RequestParam("id") Long id, ModelMap modelMap) {
+	public RedirectView deleteFlowers(@RequestParam("id") Long id, ModelMap modelMap) {
 
 		FlowersDTO flowersDTO = flowersService.getDataById(id);
 		flowersService.deleteData(flowersDTO);
 
-		List<FlowersDTO> listFlowerDTO = flowersService.getAllData();
-		modelMap.addAttribute("listFlowerDTO", listFlowerDTO);
-
-		return "displayFlowers";
+		return new RedirectView("display");
 	}
 
 	@RequestMapping("/updateFlower")
