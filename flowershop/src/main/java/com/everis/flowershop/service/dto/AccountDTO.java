@@ -1,10 +1,5 @@
 package com.everis.flowershop.service.dto;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Entity;
-
 public class AccountDTO {
 
 	private String username;
@@ -56,11 +51,10 @@ public class AccountDTO {
 		this.email = email;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Account [username=" + username + ", password=" + password + ", fullname=" + fullname + ", email="
-				+ email +"]";
+				+ email + "]";
 	}
 
 }

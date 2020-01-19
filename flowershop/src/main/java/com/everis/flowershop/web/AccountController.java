@@ -20,27 +20,26 @@ public class AccountController {
 
 	@Autowired
 	AccountService accountService;
-	
+
 	@RequestMapping("/account")
 	private String account() {
 		return "account";
 	}
-	
+
 	@GetMapping("/sign")
 	private String signup(ModelMap modelMap) {
 		modelMap.put("account", new AccountDTO());
-		
+
 		return "signup";
 	}
-	
+
 	@PostMapping("/signup")
 	private String signup(@ModelAttribute("accountDTO") AccountDTO accountDTO) {
 		accountDTO.setPassword(BCrypt.hashpw(accountDTO.getPassword(), BCrypt.gensalt()));
 		accountService.create(accountDTO);
-		System.out.println("account created :"+accountService.create(accountDTO));
 		return "account";
 	}
-	
+
 	@RequestMapping("/login")
 	private String login(ModelMap modelMap, HttpServletRequest request, HttpSession session) {
 		String username = request.getParameter("username");
@@ -49,11 +48,10 @@ public class AccountController {
 		if (accountDTO == null) {
 			modelMap.put("error", "Invalid Account");
 			return "account";
-		}else {
+		} else {
 			session.setAttribute("username", username);
 			return "cart";
 		}
-		
-		
+
 	}
 }

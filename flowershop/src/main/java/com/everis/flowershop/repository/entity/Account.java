@@ -1,8 +1,5 @@
 package com.everis.flowershop.repository.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,7 +11,6 @@ public class Account {
 	private String password;
 	private String fullname;
 	private String email;
-	//private Set<Orders> orders = new HashSet<>();
 
 	public Account() {
 		super();
@@ -26,7 +22,6 @@ public class Account {
 		this.password = password;
 		this.fullname = fullname;
 		this.email = email;
-	//	this.orders = orders;
 	}
 
 	public String getUsername() {
@@ -60,14 +55,6 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-//	public Set<Orders> getOrders() {
-//		return orders;
-//	}
-//
-//	public void setOrders(Set<Orders> orders) {
-//		this.orders = orders;
-//	}
 
 	@Override
 	public String toString() {

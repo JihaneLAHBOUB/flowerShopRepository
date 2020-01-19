@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-     pageEncoding="ISO-8859-1"%> 
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,25 +9,28 @@
 </head>
 <body>
 
-	
+
 	<form action="saveFlowers" method="post">
-	<pre>
+		<pre>
 	
-	Name : <input type="text" name="name"/>
+	Name : <input type="text" name="name" />
 	
-	Description : <input type="text" name="description"/>
+	Description : <input type="text" name="description" />
 	
-	Current Price : <input type="text" name="currentPrice"/>
+	Current Price : <input type="text" name="currentPrice" />
 	
-	Quantity : <input type="text" name="quantity"/>
+	Quantity : <input type="text" name="quantity" />
 	
-	Category : <input type="text" name="category_id" />
-			 
-<!-- 	Category id: <input type="text" name="categoryDTO.id" /> -->
-<!-- 	Category name: <input type="text" name="categoryDTO.name" /> -->
-<!-- 	Category description: <input type="text" name="categoryDTO.description" /> -->
+	Category : <select name="category_id">
+					<c:forEach items="${categoryList }" var="category">
+						<option value="${category.id }"> ${category.name } </option>
+					</c:forEach>
+				
+				</select>
 	
-	<input type="submit" value="save"/>
+	
+	
+	<input type="submit" value="save" />
 	</pre>
 	</form>
 	${msg }

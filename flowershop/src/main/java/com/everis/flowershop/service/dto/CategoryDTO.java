@@ -2,13 +2,12 @@ package com.everis.flowershop.service.dto;
 
 import java.util.List;
 
-
 public class CategoryDTO {
 
 	private Long id;
 	private String name;
 	private String description;
-	
+
 	private List<FlowersDTO> flowersDTOList;
 
 	public CategoryDTO() {

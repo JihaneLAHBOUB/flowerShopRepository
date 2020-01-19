@@ -1,7 +1,6 @@
 package com.everis.flowershop.repository.entity;
 
-import java.sql.Date;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,57 +11,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.GeneratorType;
 
 @Entity
 public class Orders {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
+	private Long id;
+
 	private String name;
 	private Date dateCreation;
 	private boolean status;
-	
-	@OneToOne
-	@JoinColumn(name = "account_id")
-	private Account account;
-	
+
+	private String username;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "orderDetail_id")
-	private List<OrderDetail> orderDetails = new ArrayList<>();
+	@JoinColumn(name = "order_id")
+	private List<ItemsCart> itemList;
 
 	public Orders() {
 		super();
 	}
 
-	public Orders(Integer id, Account account, String name, Date dateCreation, boolean status) {
+	public Orders(Long id, String name, Date dateCreation, boolean status, String account) {
 		super();
 		this.id = id;
-		this.account = account;
 		this.name = name;
 		this.dateCreation = dateCreation;
 		this.status = status;
-//		this.orderDetails = orderDetails;
+		this.username = account;
+
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Account getAccount() {
-		return account;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getName() {
@@ -89,18 +83,18 @@ public class Orders {
 		this.status = status;
 	}
 
-	public List<OrderDetail> getOrderDetails() {
-		return orderDetails;
+	public List<ItemsCart> getItemList() {
+		return itemList;
 	}
 
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setItemList(List<ItemsCart> itemList) {
+		this.itemList = itemList;
 	}
 
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", account=" + account + ", name=" + name + ", dateCreation=" + dateCreation
-				+ ", status=" + status + "]";
+		return "Orders [id=" + id + ", name=" + name + ", dateCreation=" + dateCreation + ", status=" + status
+				+ ", account=" + username + ", itemList=" + itemList + "]";
 	}
 
 }

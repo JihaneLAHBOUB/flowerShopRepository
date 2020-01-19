@@ -19,26 +19,20 @@ public class FlowersServiceImpl implements FlowersService {
 
 	@Autowired
 	private FlowersDAO flowersDAO;
-	
+
 	@Autowired
 	private CategoryDAO categoryDAO;
-	
+
 	public FlowersTransformer transformer = new FlowersTransformer();
 
 	@Override
 	public FlowersDTO saveData(FlowersDTO flowerDTO) {
-		
-//		System.out.println("dto id category: "+ flowerDTO.getCategory_id());
-		
+
 		Flowers flowerToCreate = transformer.toEntity(flowerDTO);
 		flowerToCreate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
-		
-//		System.out.println("toEntity id category: "+ flowerToCreate.getCategory().getId());
-		
+
 		Flowers createdFlower = flowersDAO.save(flowerToCreate);
-		System.out.println("after save  id category: "+ createdFlower.getCategory().getId());
 		FlowersDTO createdFlowerDTO = transformer.toDTO(createdFlower);
-		System.out.println("after save to dto id category: "+ createdFlowerDTO.getCategory_id());
 
 		return createdFlowerDTO;
 	}
@@ -46,10 +40,8 @@ public class FlowersServiceImpl implements FlowersService {
 	@Override
 	public FlowersDTO updateData(FlowersDTO flowerDTO) {
 
-		System.out.println("inside update ");
 		Flowers flowerToUpdate = transformer.toEntity(flowerDTO);
 		flowerToUpdate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
-		System.out.println("flower:"+flowerToUpdate);
 		Flowers updatedFlower = flowersDAO.save(flowerToUpdate);
 		FlowersDTO updatedFlowerDTO = transformer.toDTO(updatedFlower);
 
@@ -69,10 +61,10 @@ public class FlowersServiceImpl implements FlowersService {
 		Optional<Flowers> flower = flowersDAO.findById(id);
 
 		if (flower.isPresent()) {
-			
+
 			return transformer.toDTO(flower.get());
-		}else {
-			
+		} else {
+
 			return null;
 		}
 	}

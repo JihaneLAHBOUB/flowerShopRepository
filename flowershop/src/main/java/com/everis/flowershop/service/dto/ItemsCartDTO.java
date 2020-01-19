@@ -1,26 +1,35 @@
 package com.everis.flowershop.service.dto;
 
-public class ItemDTO {
+public class ItemsCartDTO {
 
+	private Long id;
 	private FlowersDTO flowerDTO;
 	private int quantity;
 
-	public ItemDTO() {
+	public ItemsCartDTO() {
 		super();
 	}
 
-	public ItemDTO(FlowersDTO flower, int quantity) {
+	public ItemsCartDTO(FlowersDTO flower, int quantity) {
 		super();
 		this.flowerDTO = flower;
 		this.quantity = quantity;
 	}
 
-	public FlowersDTO getFlower() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public FlowersDTO getFlowerDTO() {
 		return flowerDTO;
 	}
 
-	public void setFlower(FlowersDTO flower) {
-		this.flowerDTO = flower;
+	public void setFlowerDTO(FlowersDTO flowerDTO) {
+		this.flowerDTO = flowerDTO;
 	}
 
 	public int getQuantity() {
@@ -33,7 +42,7 @@ public class ItemDTO {
 
 	@Override
 	public String toString() {
-		return "Item [flowerDTO=" + flowerDTO + ", quantity=" + quantity + "]";
+		return flowerDTO + "| Quantity :" + quantity;
 	}
 
 }

@@ -1,5 +1,9 @@
 package com.everis.flowershop.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +21,57 @@ public class OrderServiceImpl implements OrdersService {
 	OrderTransformer transformer = new OrderTransformer();
 
 	@Override
-	public OrdersDTO create(OrdersDTO ordersDTO) {
+	public OrdersDTO saveData(OrdersDTO ordersDTO) {
 
 		Orders orderToCreate = transformer.toEntity(ordersDTO);
 		Orders orderCreated = orderDAO.save(orderToCreate);
 		OrdersDTO createdOrderDTO = transformer.toDTO(orderCreated);
-
 		return createdOrderDTO;
+	}
+
+	@Override
+	public List<OrdersDTO> getAllData() {
+
+		List<OrdersDTO> listOrderDTO = new ArrayList<>();
+		List<Orders> listOrder = orderDAO.findAll();
+
+		for (Orders orders : listOrder) {
+			listOrderDTO.add(transformer.toDTO(orders));
+		}
+
+		return listOrderDTO;
+	}
+
+	@Override
+	public OrdersDTO updateData(OrdersDTO orderDTO) {
+
+		Orders orderToUpdate = transformer.toEntity(orderDTO);
+		orderToUpdate.setStatus(true);
+		Orders orderUpdated = orderDAO.save(orderToUpdate);
+		OrdersDTO updatedOrderDTO = transformer.toDTO(orderUpdated);
+
+		return updatedOrderDTO;
+	}
+
+	@Override
+	public void deleteData(OrdersDTO orderDTO) {
+
+		Orders orderToDelete = transformer.toEntity(orderDTO);
+		orderDAO.delete(orderToDelete);
+
+	}
+
+	@Override
+	public OrdersDTO getDataById(Long id) {
+
+		Optional<Orders> order = orderDAO.findById(id);
+
+		if (order.isPresent()) {
+
+			return transformer.toDTO(order.get());
+		}
+
+		return null;
 	}
 
 }

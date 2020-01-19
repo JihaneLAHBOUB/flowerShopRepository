@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.everis.flowershop.repository.entity.Orders;
 
 @Repository
-public interface OrderDAO extends JpaRepository<Orders, Integer> {
+public interface OrderDAO extends JpaRepository<Orders, Long> {
 
 }

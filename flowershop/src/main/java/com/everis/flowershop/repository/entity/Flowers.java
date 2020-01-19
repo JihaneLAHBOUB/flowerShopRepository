@@ -1,6 +1,8 @@
 package com.everis.flowershop.repository.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +21,7 @@ public class Flowers {
 	private int quantity;
 	private String photoName;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id")
 	private Category category;
 
@@ -54,7 +56,6 @@ public class Flowers {
 	public void setCurrentPrice(double currentPrice) {
 		this.currentPrice = currentPrice;
 	}
-
 
 	public String getPhotoName() {
 		return photoName;

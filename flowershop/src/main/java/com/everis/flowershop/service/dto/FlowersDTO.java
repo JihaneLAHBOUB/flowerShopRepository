@@ -11,6 +11,30 @@ public class FlowersDTO {
 
 	private Long category_id;
 
+	public FlowersDTO() {
+		super();
+	}
+
+	public FlowersDTO(Long id, String name, double currentPrice, int quantity) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.currentPrice = currentPrice;
+		this.quantity = quantity;
+	}
+
+	public FlowersDTO(Long id, String name, String description, double currentPrice, int quantity, String photoName,
+			Long category_id) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.currentPrice = currentPrice;
+		this.quantity = quantity;
+		this.photoName = photoName;
+		this.category_id = category_id;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -69,8 +93,7 @@ public class FlowersDTO {
 
 	@Override
 	public String toString() {
-		return "FlowersDTO [id=" + id + ", name=" + name + ", description=" + description + ", currentPrice="
-				+ currentPrice + ", quantity="+quantity +", photoName=" + photoName + "category_id=" + category_id +"]";
+		return name + "| Price :" + currentPrice;
 	}
 
 }
