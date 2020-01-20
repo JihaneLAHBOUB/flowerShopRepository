@@ -29,7 +29,7 @@
 	Category : <select name="category_id">
 	
 					<c:forEach items="${categoryList }" var="category">
-						<option value="${category.id }"> ${category.name } </option>
+						<option value="${category.id }" ${Flower.category_id == category.id ? 'selected'  : '' }> ${category.name } </option>
 					</c:forEach>
 				
 				</select>

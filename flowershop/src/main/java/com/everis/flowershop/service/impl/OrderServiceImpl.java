@@ -1,5 +1,6 @@
 package com.everis.flowershop.service.impl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +48,7 @@ public class OrderServiceImpl implements OrdersService {
 
 		Orders orderToUpdate = transformer.toEntity(orderDTO);
 		orderToUpdate.setStatus(true);
+		orderToUpdate.setDateCreation(LocalDate.now());
 		Orders orderUpdated = orderDAO.save(orderToUpdate);
 		OrdersDTO updatedOrderDTO = transformer.toDTO(orderUpdated);
 
