@@ -46,6 +46,9 @@ public class AdminCategoryController {
 	public RedirectView deleteCategory(@RequestParam("id") Long id, ModelMap modelMap) {
 
 		CategoryDTO CategoryDTO = categoryService.getDataById(id);
+		if(CategoryDTO != null) {
+			
+		}
 		categoryService.deleteData(CategoryDTO);
 
 		return new RedirectView("displayCategories");
