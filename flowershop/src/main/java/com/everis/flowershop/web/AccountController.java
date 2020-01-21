@@ -22,8 +22,12 @@ public class AccountController {
 	AccountService accountService;
 
 	@RequestMapping("/account")
-	private String account() {
-		return "account";
+	private String account(HttpSession session) {
+		if(session.getAttribute("username") != null) {
+			return "index";
+		}else {
+			return "account";
+		}
 	}
 
 	@GetMapping("/sign")
@@ -46,12 +50,46 @@ public class AccountController {
 		String password = request.getParameter("password");
 		AccountDTO accountDTO = accountService.login(username, password);
 		if (accountDTO == null) {
-			modelMap.put("error", "Invalid Account");
+			modelMap.put("error", "Invalid Username Or Password");
 			return "account";
 		} else {
 			session.setAttribute("username", username);
 			return "cart";
 		}
-
 	}
+	
+	@RequestMapping("/logout")
+	private String userLogout(HttpSession session) {
+		session.removeAttribute("username");
+		return "account";
+	}
+	
+	// admin login side
+	
+	@RequestMapping("/admin")
+	private String adminLogin() {
+		return "login";
+	}
+	
+	@RequestMapping("/loginAdmin")
+	private String verify(HttpServletRequest request, ModelMap map,HttpSession session) {
+		String user = request.getParameter("user");
+		String password = request.getParameter("password");
+		AccountDTO accountDTO = accountService.login(user, password);
+		if(accountDTO == null) {
+			map.put("error", "Invalid Username Or Password");
+			return "login";
+		}else {
+			session.setAttribute("user", user);
+			return "home";
+		}
+	}
+	
+	@RequestMapping("/logoutAdmin")
+	private String adminLogout(HttpSession session) {
+		
+			session.removeAttribute("user");
+			return "login";
+	}
+	
 }

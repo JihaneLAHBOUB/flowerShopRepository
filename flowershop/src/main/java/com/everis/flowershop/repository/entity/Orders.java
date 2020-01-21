@@ -1,16 +1,11 @@
 package com.everis.flowershop.repository.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Orders {
@@ -24,10 +19,6 @@ public class Orders {
 	private boolean status;
 
 	private String username;
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "order_id")
-	private List<ItemsCart> itemList;
 
 	public Orders() {
 		super();
@@ -83,18 +74,10 @@ public class Orders {
 		this.status = status;
 	}
 
-	public List<ItemsCart> getItemList() {
-		return itemList;
-	}
-
-	public void setItemList(List<ItemsCart> itemList) {
-		this.itemList = itemList;
-	}
-
 	@Override
 	public String toString() {
 		return "Orders [id=" + id + ", name=" + name + ", dateCreation=" + dateCreation + ", status=" + status
-				+ ", account=" + username + ", itemList=" + itemList + "]";
+				+ ", account=" + username + "]";
 	}
 
 }

@@ -32,6 +32,20 @@ public class CartController {
 	@Autowired
 	private OrdersService ordersService;
 
+	@RequestMapping("/")
+	public String index(ModelMap modelMap) {
+		
+		List<FlowersDTO> listProductDTO = flowersService.getAllData();
+		List<FlowersDTO> listProduct = new ArrayList<>();
+		for(int i = 0; i < 4; i++) {
+			listProduct.add(listProductDTO.get(i));
+		}
+		
+		modelMap.addAttribute("listProduct", listProduct);
+		
+		return "index";
+	}
+	
 	@RequestMapping("/product")
 	public String displayAllProduct(ModelMap modelMap) {
 
@@ -39,7 +53,13 @@ public class CartController {
 		modelMap.addAttribute("listProductDTO", listProductDTO);
 		return "displayProduct";
 	}
-
+	
+	@RequestMapping("/cart")
+	public String cart() {
+		
+		return "cart";
+	}
+	
 	@RequestMapping("/addProduct")
 	public String addToCart(@RequestParam("id") Long id, HttpSession session) {
 
@@ -123,31 +143,14 @@ public class CartController {
 		if (session.getAttribute("username") == null) {
 			return "account";
 		} else {
+			
 			// add New Order
 			OrdersDTO orderDTO = new OrdersDTO();
-			orderDTO.setUsernameDTO(
-					(accountService.findUser(session.getAttribute("username").toString())).getUsername());
+			orderDTO.setUsernameDTO((accountService.findUser(session.getAttribute("username").toString())).getUsername());
 
 			orderDTO.setName("New Order");
 			orderDTO.setStatus(false);
 			orderDTO.setDateCreation(LocalDate.now());
-
-			// add order detail
-			List<ItemsCartDTO> cart = (List<ItemsCartDTO>) session.getAttribute("cart");
-			for (ItemsCartDTO itemCart : cart) {
-
-				FlowersDTO flowerDTO = new FlowersDTO(itemCart.getFlowerDTO().getId(),
-						itemCart.getFlowerDTO().getName(), itemCart.getFlowerDTO().getDescription(),
-						itemCart.getFlowerDTO().getCurrentPrice(), itemCart.getFlowerDTO().getQuantity(),
-						itemCart.getFlowerDTO().getPhotoName(), itemCart.getFlowerDTO().getCategory_id());
-
-				flowersService.saveData(flowerDTO);
-				List<ItemsCartDTO> item = new ArrayList<>();
-				ItemsCartDTO itemsCartDTO = new ItemsCartDTO(flowerDTO, itemCart.getQuantity());
-
-				item.add(itemsCartDTO);
-				orderDTO.setItemDTOList(item);
-			}
 
 			ordersService.saveData(orderDTO);
 

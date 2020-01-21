@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia&display=swap');
+body {
+    font-family: 'Sofia', cursive;
+}
+	
+.row.content {
+	height: 900px;
+	}
+	
+.header {
+	
+  padding: 76px;
+  text-align: center;
+  background: #248ea9;
+  color: white;
+  font-size: 20px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: -10px;
+  background : url("../img/cart/cart-5.jpg");
+}
+  
+.page-header {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }	
+
+.sidenav {
+  height: 100%;
+}
+.sidenav.sidebar {
+	
+  padding-top: 200px;
+  padding-left: 40px;
+}
+
+/* Style the sidebar - fixed full height */
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(237,29,36);
+  overflow-x: hidden;
+  padding-top: 16px;
+  
+  font-family: 'Sofia', courier;
+}
+
+/* Style sidebar links */
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  /* color: #818181; */
+  display: block;
+  color: #f1f1f1;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  color: white;
+}
+
+/* Style the main content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+th {
+  background-color: #fff ;
+  color: #000000;
+  padding-top: 45px;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  /* border-bottom: 1px solid #ddd; */
+  
+}
+
+span {
+  float: right;
+  font-size: 150%;
+  font-family: 'Sofia', courier;
+  padding-top: 10px;
+}
+h1 small {
+	
+  font-family: 'Sofia', courier;
+}
+
+.btn.btn-info.op{
+	border-radius: 30px;
+}
+
+.label{
+	color: black;
+}
+
+.dataTables_filter, .dataTables_info { display: none; }
+
+
+.log a{
+	padding-right: 33px;
+	float: right;
+	color: #f1f1f1;
+}
+.log a:hover{
+	/* color: rgb(237,29,36); */
+	color: white;
+}
+.log{
+	margin-top: -120px;
+	margin-right: 60px;
+	margin-left: 70px;
+	color: white;
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+#contact {
+  top: 80px;
+  background-color: #555
+}
+
+#admin img{
+	margin-top: -330px;
+	margin-left: 70px;
+}
+#myCarousel{
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+ .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: #f1f1f1;
+  }
+  
+  .sheap {
+  	text-align: center;
+  }
+  
+  .asTextArea{
+  height:70px;
+    width:500px;
+  }

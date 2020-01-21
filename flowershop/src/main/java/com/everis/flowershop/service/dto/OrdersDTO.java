@@ -1,7 +1,6 @@
 package com.everis.flowershop.service.dto;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class OrdersDTO {
 
@@ -12,8 +11,6 @@ public class OrdersDTO {
 	private boolean status;
 
 	private String usernameDTO;
-
-	private List<ItemsCartDTO> itemDTO;
 
 	public OrdersDTO() {
 		super();
@@ -44,14 +41,6 @@ public class OrdersDTO {
 		this.usernameDTO = usernameDTO;
 	}
 
-	public List<ItemsCartDTO> getItemDTO() {
-		return itemDTO;
-	}
-
-	public void setItemDTO(List<ItemsCartDTO> itemDTO) {
-		this.itemDTO = itemDTO;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -76,18 +65,10 @@ public class OrdersDTO {
 		this.status = status;
 	}
 
-	public List<ItemsCartDTO> getItemDTOList() {
-		return itemDTO;
-	}
-
-	public void setItemDTOList(List<ItemsCartDTO> itemDTO) {
-		this.itemDTO = itemDTO;
-	}
-
 	@Override
 	public String toString() {
 		return "OrdersDTO [id=" + id + ", name=" + name + ", dateCreation=" + dateCreation + ", status=" + status
-				+ ", accountDTO=" + usernameDTO + ", itemDTO=" + itemDTO + "]";
+				+ ", accountDTO=" + usernameDTO + "]";
 	}
 
 }

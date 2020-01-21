@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrdersService {
 
 		Orders orderToUpdate = transformer.toEntity(orderDTO);
 		orderToUpdate.setStatus(true);
+		orderToUpdate.setName("Validate Order");
 		orderToUpdate.setDateCreation(LocalDate.now());
 		Orders orderUpdated = orderDAO.save(orderToUpdate);
 		OrdersDTO updatedOrderDTO = transformer.toDTO(orderUpdated);

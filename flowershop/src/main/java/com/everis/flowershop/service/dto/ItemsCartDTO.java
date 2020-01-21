@@ -1,7 +1,7 @@
 package com.everis.flowershop.service.dto;
 
 public class ItemsCartDTO {
-
+	
 	private Long id;
 	private FlowersDTO flowerDTO;
 	private int quantity;
