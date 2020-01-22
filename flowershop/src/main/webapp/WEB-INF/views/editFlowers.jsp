@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ajouter un nouveau achat</title>
+<title>Flower Shop</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>	
@@ -82,32 +82,6 @@
 				</div>
 		</div>
 </div>
-<!-- 	<form action="updateFlowers" method="post"> -->
-<!-- 		<pre> -->
-	
-<%-- 	Id : <input type="text" name="id" value="${Flower.id }" readonly /> --%>
-	
-<%-- 	Name : <input type="text" name="name" value="${Flower.name }" /> --%>
-	
-<!-- 	Description : <input type="text" name="description" -->
-<%-- 				value="${Flower.description }" /> --%>
-	
-<!-- 	Current Price : <input type="text" name="currentPrice" -->
-<%-- 				value="${Flower.currentPrice }" /> --%>
-	
-<!-- 	Quantity : <input type="text" name="quantity" -->
-<%-- 				value="${Flower.quantity }" /> --%>
-	
-<!-- 	Category : <select name="category_id"> -->
-	
-<%-- 					<c:forEach items="${categoryList }" var="category"> --%>
-<%-- 						<option value="${category.id }" ${Flower.category_id == category.id ? 'selected'  : '' }> ${category.name } </option> --%>
-<%-- 					</c:forEach> --%>
-				
-<!-- 				</select> -->
-	
-<!-- 	<input type="submit" value="Update" /> -->
-<!-- 		</pre> -->
-<!-- 	</form> -->
+
 </body>
 </html>

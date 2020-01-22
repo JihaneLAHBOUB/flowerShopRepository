@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Flower Shop</title>
 <link rel="stylesheet" type="text/css" href="css/styleAdmin.css">
 <link href="css/bootstrap.min.css" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
 								<td>${category.description }</td>
 								<td class="sheap">
 								<a href="updateCategory?id=${category.id}" class="btn btn-primary">Update</a>
-								<a href="deleteCategory?id=${category.id}" onclick="return confirm('Make sure to delete all flowers in this category.You want to continue?')" class="btn btn-danger">Delete</a>
+								<a href="deleteCategory?id=${category.id}" onclick="return confirm('Make sure to delete all flowers in this category first.You want to continue?')" class="btn btn-danger">Delete</a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -80,47 +80,5 @@
 	</div>
 </div>
 
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ____________v1__________________ -->
-<!-- 	<h2>Category :</h2> -->
-<!-- 	<table border="1"> -->
-
-<!-- 		<tr> -->
-<!-- 			<th>id</th> -->
-<!-- 			<th>Name</th> -->
-<!-- 			<th>Description</th> -->
-<!-- 			<th>Option</th> -->
-<!-- 		</tr> -->
-
-<%-- 		<c:forEach items="${listCategoryDTO }" var="category"> --%>
-<!-- 			<tr> -->
-<%-- 				<td>${category.id }</td> --%>
-<%-- 				<td>${category.name }</td> --%>
-<%-- 				<td>${category.description }</td> --%>
-<%-- 				<td><a href="updateCategory?id=${category.id}">Update</a> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-<!-- 	</table> -->
-<!-- 	<a href="showCreateCategory">Add Category</a> -->
 </body>
 </html>

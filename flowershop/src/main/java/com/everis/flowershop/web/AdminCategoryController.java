@@ -35,8 +35,8 @@ public class AdminCategoryController {
 	@RequestMapping("/saveCategory")
 	public String saveCategory(@ModelAttribute("CategoryDTO") CategoryDTO categoryDTO, ModelMap modelMap) {
 
-		CategoryDTO categoryTOSaved = categoryService.saveData(categoryDTO);
-		String msg = "Category saved with id : " + categoryTOSaved.getId();
+		categoryService.saveData(categoryDTO);
+		String msg = "Category saved successfully ";
 		modelMap.addAttribute("msg", msg);
 		return "createCategory";
 	}

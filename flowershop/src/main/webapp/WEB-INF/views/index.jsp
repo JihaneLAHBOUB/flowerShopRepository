@@ -120,7 +120,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="hero-slider-content slide-1">
-										<span>valentine gift</span>
+										<span>Mother's Day gift</span>
 										<h1>Fresh Your Mind</h1>
 										<h2>& Feeling love</h2>
 										<a href="/flowershop/product" class="btn-hero">shop now</a>

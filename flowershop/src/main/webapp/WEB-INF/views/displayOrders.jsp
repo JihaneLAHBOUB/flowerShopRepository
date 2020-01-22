@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Flower Shop</title>
 <link rel="stylesheet" type="text/css" href="css/styleAdmin.css">
 <link href="css/bootstrap.min.css" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -71,43 +71,6 @@
 			</div>
 		</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 	<h2>Orders :</h2> -->
-<!-- 	<table border="1"> -->
-
-<!-- 		<tr> -->
-<!-- 			<th>id</th> -->
-<!-- 			<th>Name</th> -->
-<!-- 			<th>Date Creation</th> -->
-<!-- 			<th>status</th> -->
-<!-- 			<th>Client</th> -->
-<!-- 		</tr> -->
-
-<%-- 		<c:forEach items="${listOrdersDTO }" var="order"> --%>
-<!-- 			<tr> -->
-<%-- 				<td>${order.id }</td> --%>
-<%-- 				<td>${order.name }</td> --%>
-<%-- 				<td>${order.dateCreation }</td> --%>
-<%-- 				<td>${order.status }</td> --%>
-<%-- 				<td>${order.usernameDTO }</td> --%>
-<%-- 				<td><a href="updateStatus?id=${order.id}">Validate Order</a> --%>
-<%-- 				<td><a href="deleteOrder?id=${order.id}">Delete</a> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-<!-- 	</table> -->
 
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Flower Shop</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -28,14 +28,15 @@
          
                 <h2 class="text-center">Welcome back.</h2>
             	<br>
+            	<span style="color: red;font-size: x-large;"> ${error }</span>
             	
             	<form action='loginAdmin' method="post">
             	
-            		Username :
+            		<label style="font-size: larger;">Username :</label>
 
 					<input type="text" name="user" id="marg" class="form-control size" required="required"/><br>
 					
-					Password :
+					<label style="font-size: larger;">Password :</label>
 					<br>
 					<input type="password" name="password" class="form-control col-sm-6 size" required="required"/>
 					

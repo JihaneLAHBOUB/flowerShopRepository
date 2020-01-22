@@ -30,7 +30,7 @@ public class FlowersServiceImpl implements FlowersService {
 
 		Flowers flowerToCreate = transformer.toEntity(flowerDTO);
 		flowerToCreate.setCategory(categoryDAO.getOne(flowerDTO.getCategory_id()));
-
+		flowerToCreate.setPhotoName("product-11.jpg");
 		Flowers createdFlower = flowersDAO.save(flowerToCreate);
 		FlowersDTO createdFlowerDTO = transformer.toDTO(createdFlower);
 

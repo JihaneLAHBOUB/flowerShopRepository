@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ajouter un nouveau achat</title>
+<title>Flower Shop</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>	
@@ -25,11 +25,11 @@
 					<div id="admin">
 					<img src="img/admin/admin-gray.png" alt="admin">
 					<div class="log">
-						 <p>Admin ${sessionScope.username }</p> 
+						 <p>Admin ${sessionScope.user }</p> 
 					</div>
 					</div>
 					<div id="mySidenav">
-					  <a href="logout.html" id="contact">Log out</a>
+					  <a href="logoutAdmin" id="contact">Log out</a>
 					</div>
 					 <a href="/flowershop/home"><i class="fa fa-fw fa-home"></i> About Us </a>
 				<br> <a href="/flowershop/displayCategories"><i class="fas fa-store-alt"></i> Go To Categories</a>
@@ -47,8 +47,8 @@
 				
 					<h1> <small> Add New: </small></h1>
 					<hr>
+					<span style="color: green;"> ${msg } </span>
 					<br>
-					<span> ${msg } </span>
 					<form action="saveCategory" method="post" style="width: 500px;margin-left: 22%;">
 						
 							<div class="form-group">
@@ -66,21 +66,6 @@
 				</div>
 		</div>
 </div>
-		
 
-
-<!-- 	<form action="saveCategory" method="post"> -->
-<!-- 		<pre> -->
-	
-<!-- 	Name : <input type="text" name="name" /> -->
-	
-<!-- 	Description :  -->
-<!-- 	<textarea rows="4" cols="50" name="description" ></textarea> -->
-	
-<!-- 	<input type="submit" value="save" /> -->
-<!-- 	</pre> -->
-<!-- 	</form> -->
-<%-- 	${msg } --%>
-<!-- 	<a href="displayCategories">View All</a> -->
 </body>
 </html>

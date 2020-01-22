@@ -133,9 +133,9 @@
         </div>
         <!-- breadcrumb area end -->
 
-	<h3>Thanks for buying my products</h3>
-	<img alt="" src="img/cart/thank.jpg">
-	<a href="product">Continue Shopping</a>
+	<h3>Thanks for buying our products</h3>
+	<img alt="" src="img/cart/thank-2.jpg" style="margin-left: 15%;">
+<!-- 	<a href="product">Continue Shopping</a> -->
         
    </main>
 

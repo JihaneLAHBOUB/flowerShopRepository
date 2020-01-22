@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Flower Shop</title>
 <link rel="stylesheet" type="text/css" href="css/styleAdmin.css">
 <link href="css/bootstrap.min.css" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,31 +73,5 @@
 	</div>
 </div>
 
-
-
-<!-- 	<h2>Flower's Stock :</h2> -->
-<!-- 	<table border="1"> -->
-
-<!-- 		<tr> -->
-<!-- 			<th>id</th> -->
-<!-- 			<th>Name</th> -->
-<!-- 			<th>Quantity</th> -->
-<!-- 			<th>description</th> -->
-<!-- 			<th>price</th> -->
-<!-- 		</tr> -->
-
-<%-- 		<c:forEach items="${listFlowerDTO }" var="flower"> --%>
-<!-- 			<tr> -->
-<%-- 				<td>${flower.id }</td> --%>
-<%-- 				<td>${flower.name }</td> --%>
-<%-- 				<td>${flower.quantity }</td> --%>
-<%-- 				<td>${flower.description }</td> --%>
-<%-- 				<td>${flower.currentPrice }</td> --%>
-<%-- 				<td><a href="deleteFlower?id=${flower.id}">Delete</a> --%>
-<%-- 				<td><a href="updateFlower?id=${flower.id}">Update</a> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-<!-- 	</table> -->
-<!-- 	<a href="showCreate">Add Flowers</a> -->
 </body>
 </html>

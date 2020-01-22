@@ -34,8 +34,8 @@ public class AdminFlowerController {
 	@RequestMapping("/saveFlowers")
 	public String saveFlowers(@ModelAttribute("FlowersDTO") FlowersDTO flowersDTO, ModelMap modelMap) {
 
-		FlowersDTO flowerDTOSaved = flowersService.saveData(flowersDTO);
-		String msg = "Flower saved with id : " + flowerDTOSaved.getId();
+		flowersService.saveData(flowersDTO);
+		String msg = "Flower saved successfully ";
 		modelMap.addAttribute("msg", msg);
 		return "createFlowers";
 	}

@@ -113,30 +113,6 @@
   			</div> 
     
 	</main>
-<!-- 	<h2>Account Login :</h2> -->
-
-<!-- 	<form action="login" method="post"> -->
-<%-- 		<span>${error }</span> --%>
-<!-- 		<table border="1"> -->
-<!-- 			<tr> -->
-<!-- 				<td>Username</td> -->
-<!-- 				<td><input type="text" name="username"></td> -->
-<!-- 			</tr> -->
-
-<!-- 			<tr> -->
-<!-- 				<td>Password</td> -->
-<!-- 				<td><input type="password" name="password"></td> -->
-<!-- 			</tr> -->
-
-<!-- 			<tr> -->
-<!-- 				<td>&nbsp;</td> -->
-<!-- 				<td><input type="submit" value="Login"></td> -->
-<!-- 				<br /> -->
-<!-- 				<a href="sign">Sign Up</a> -->
-<!-- 			</tr> -->
-<!-- 		</table> -->
-<!-- 	</form> -->
-
 
 <!-- footer widget area start -->
         <div id="contact" class="footer-widget-area">
